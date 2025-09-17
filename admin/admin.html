@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PaduanTea Dashboard</title>
+    <link rel="stylesheet" href="admin.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Sidebar -->
+      <nav class="sidebar">
+        <div class="logo">Paduan<span>Tea</span></div>
+        <div class="nav-menu">
+          <a href="#" class="nav-item active"
+            ><i class="fas fa-user"></i> Akun</a
+          >
+          <a href="#" class="nav-item"
+            ><i class="fas fa-history"></i> History Pembelian</a
+          >
+          <a href="#" class="nav-item"
+            ><i class="fas fa-shopping-cart"></i> Keranjang</a
+          >
+          <a href="#" class="nav-item"
+            ><i class="fas fa-sign-in-alt"></i> Log Login</a
+          >
+          <a href="#" class="nav-item"
+            ><i class="fas fa-map-marker-alt"></i> Lokasi Outlet</a
+          >
+          <a href="#" class="nav-item"><i class="fas fa-utensils"></i> Menu</a>
+          <a href="#" class="nav-item"
+            ><i class="fas fa-shopping-bag"></i> Order
+            <span class="badge">19</span></a
+          >
+          <a href="#" class="nav-item"
+            ><i class="fas fa-file-alt"></i> Order Detail</a
+          >
+          <a href="#" class="nav-item"
+            ><i class="fas fa-ticket-alt"></i> Voucher</a
+          >
+        </div>
+      </nav>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <!-- Stats Cards -->
+        <div class="stats-cards">
+  <div class="stat-card">
+    <i class="fas fa-user"></i>
+    <span id="totalUsers">0</span>
+  </div>
+  <div class="stat-card">
+    <i class="fas fa-shopping-bag"></i>
+    <span id="totalOrders">0</span>
+  </div>
+  <div class="stat-card">
+    <i class="fas fa-sync-alt"></i>
+    <span id="activeUsers">0</span>
+  </div>
+  <div class="stat-card">
+    <i class="fas fa-shopping-cart"></i>
+    <span id="inactiveUsers">0</span>
+  </div>
+</div>
+
+
+        <!-- Breadcrumb -->
+        <div class="breadcrumb">
+          <i class="fas fa-home"></i>
+          <a href="#">E-Commerce</a>
+          <i class="fas fa-chevron-right"></i>
+          <span>Customers</span>
+        </div>
+
+        <!-- Page Header -->
+        <!-- Page Header -->
+<div class="content-header">
+  <h1 class="page-title">Customers (<span id="totalCustomers">0</span>)</h1>
+  <div>
+    <button class="actions-btn" onclick="printTable()"><i class="fas fa-print"></i></button>
+    <button class="actions-btn" onclick="downloadCSV()"><i class="fas fa-download"></i></button>
+  </div>
+</div>
+
+        <!-- Filters -->
+        <div class="filters">
+          <div class="filter-group">
+            <label>Show</label>
+            <select class="filter-select">
+              <option>10</option>
+              <option>25</option>
+              <option>50</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <input type="date" class="filter-select" />
+            <span>/</span>
+            <input type="date" class="filter-select" />
+          </div>
+          <div class="filter-group">
+            <label>Status</label>
+            <select class="filter-select" id="statusFilter">
+              <option value="All">All</option>
+              <option value="Active">Active</option>
+              <option value="Inactive">Inactive</option>
+            </select>
+          </div>
+
+          <div class="search-container">
+            <i class="fas fa-search"></i>
+            <input
+              type="text"
+              class="search-input"
+              placeholder="Search customer"
+            />
+          </div>
+          <button class="add-btn">
+            <i class="fas fa-plus"></i> Add Customer
+          </button>
+        </div>
+
+        <div class="bulk-actions">
+          <button class="btn-accept" onclick="bulkAccept()">
+            Accept Selected
+          </button>
+          <button class="btn-delete" onclick="bulkDelete()">
+            Delete Selected
+          </button>
+        </div>
+
+        <!-- Table -->
+       <div class="table-container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th><input type="checkbox" id="selectAll" /></th>
+        <th>CUSTOMER NAME</th>
+        <th>Email</th>
+        <th>Password</th>
+        <th>REGISTERED</th>
+        <th>STATUS</th>
+        <th>Alamat</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Data akan diisi lewat JS -->
+    </tbody>
+  </table>
+</div>
+
+<div class="pagination">
+  <div class="pagination-info">Showing 0 of 0 entries</div>
+</div>
+
+              <!-- Tambahkan baris customer lainnya -->
+            </tbody>
+          </table>
+
+          <!-- Pagination -->
+          <div class="pagination">
+            <div class="pagination-info">Showing 1 to 10 of 50 entries</div>
+            <div class="pagination-controls">
+              <button class="pagination-btn">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <button class="pagination-btn active">1</button>
+              <button class="pagination-btn">2</button>
+              <button class="pagination-btn">3</button>
+              <button class="pagination-btn">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="admin.js"></script>
+  </body>
+</html>
